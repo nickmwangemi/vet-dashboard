@@ -39,7 +39,7 @@ def register(request):
                     # Login after register
                     auth.login(request, user)
                     messages.success(request, 'You are now logged in')
-                    return redirect('accounts:dashboard')
+                    return redirect('dashboard:index')
         else:
             messages.error(request, 'Passwords do not match')
             return redirect('accounts:register')
