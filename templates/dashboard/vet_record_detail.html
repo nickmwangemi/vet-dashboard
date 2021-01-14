@@ -1,0 +1,145 @@
+{% extends 'base.html' %} 
+{% block title %} | Dashboard {% endblock %} 
+{% block content %}
+ <!-- Sidebar -->
+        {% include 'partials/_sidebar.html' %}
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+            {% include 'partials/_topbar.html' %}
+                
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                <!-- Alerts-->
+                {% include 'partials/_alerts.html' %}
+                
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <a href="{% url 'dashboard:all' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">View Existing Veterinary Officer Records</a>
+
+                        <a href="{% url 'dashboard:index' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Back to Dashboard</a>
+                    </div>
+
+                        <div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Veterinary Officer Record</h6>
+                                </div>
+                                <div class="card-body">
+
+                            <form class="user" method="POST" action="{% url 'dashboard:record_detail' vet_record.id %}">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control form-control-user" 
+                                        name="fullname" placeholder="Full Name" value={{ vet_record.name }}>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="name">Email Address</label>
+                                        <input type="email" class="form-control form-control-user" 
+                                        name="email" placeholder="Email Address" value={{ vet_record.email }}>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="name">County</label>
+                                        <input type="text" class="form-control form-control-user" 
+                                        name="county" placeholder="County" value={{ vet_record.county }}>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="name">ID Number</label>
+                                    <input type="text" class="form-control form-control-user"
+                                        name="idNo" 
+                                        placeholder="ID Number"
+                                        value={{ vet_record.idNo }}>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="name">Mobile Number</label>
+                                        <input type="number" class="form-control form-control-user" 
+                                        name="mobile_number" placeholder="Phone Number"
+                                        value={{ vet_record.mobile_number }}>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="name">Is Active</label>
+                                        <input type="checkbox" name="is_active" id="is_active" 
+                                            {% if vet_record.is_active == True  %} 
+                                            checked  value="{{ vet_record.is_active }}"
+                                            {% endif %}
+                                        >
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+									<button class="btn btn-primary btn-user" type="submit">Update Record</button>
+                                </div>
+                                
+                               
+                            </form>
+                                </div>
+                            </div>
+                        </div>
+                    
+
+                    
+
+                   
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+          {% include 'partials/_footer.html' %}
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+          <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
