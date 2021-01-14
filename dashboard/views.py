@@ -70,7 +70,6 @@ def vet_record_detail(request, pk):
     if request.user.is_authenticated and request.method == "POST":
 
         form = request.POST
-        print(form)
         vet_record_to_save = vet_record
         vet_record_to_save.name = form['fullname']
         vet_record_to_save.email = form['email']
