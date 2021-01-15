@@ -9,8 +9,7 @@ A dashboard for managing Veterinary Officer records.
 - Deactivate a veterinary officer.
 ### Local Setup
 
-1. Ensure Python 3.7x and Pipenv are already installed. [How To Setup.](https://djangoforbeginners.com/initial-setup/)
-2. Clone the repo and configure the virtual environment
+1. Clone the repo and configure the virtual environment
 
 ```
  $ git clone https://github.com/nickmwangemi/vet-dashboard.git
@@ -20,7 +19,7 @@ A dashboard for managing Veterinary Officer records.
  $ source env/bin/activate
 ```
 
-3. Build the database, setup superuser account and run local development server instance.
+2. Build the database, setup superuser account and run local development server instance.
 
 ```
  $ python3 manage.py migrate
