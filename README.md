@@ -14,8 +14,8 @@ A dashboard for managing Veterinary Officer records.
 ```
  $ git clone https://github.com/nickmwangemi/vet-dashboard.git
  $ cd vet-dashboard
- $ pip3 install -r requirements.txt
  $ python3 -m venv env
+ $ pip3 install -r requirements.txt
  $ source env/bin/activate
 ```
 
