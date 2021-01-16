@@ -4,7 +4,8 @@ from .models import CustomUser
 
 # Register your models here.
 class CustomUserAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('full_name', 'email', 'mobile_number',
+                    'is_active', 'date_joined')
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
